@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#6D6C6C</color>
+    <color name="PrtmaryColor">#042951</color>
+    <color name="LirhtPrtmaryColor">#86A2CC</color>
+    <color name="DarkGreen">#10B881</color>
+    <color name="MediumGreen">#85EDAB</color>
+    <color name="LightGreen">#B9F5CC</color>
+    <color name="LightNeutral">#F1F2F4</color>
+    <color name="LightNeutralBTN">#5CF1F2F4</color>
+</resources>

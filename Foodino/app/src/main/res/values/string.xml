@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ارایه گروه بندی محصولات -->
+<resources>
+    <string-array name="group_items">
+        <!-- نان -->
+            <item>🍞 Bread</item>
+        <!-- میوه و سبزیجات -->
+            <item>🍎🥦 Fruits and Vegetables</item>
+        <!-- پروتئین -->
+            <item>🍗 Protein</item>
+        <!-- لبنیات -->
+            <item>🥛 Dairy</item>
+        <!-- نوشیدنی -->
+            <item>🥤 Drinks</item>
+        <!-- کنسرو -->
+            <item>🥫 Canned Foods</item>
+        <!-- چاشنی -->
+            <item>🧂 Condiments</item>
+        <!-- تنقلات -->
+            <item>🍪 Snacks</item>
+    </string-array>
+</resources>

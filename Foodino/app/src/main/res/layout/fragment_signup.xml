@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentSignup">
+
+    <!-- کارت/پنل فرم -->
+    <RelativeLayout
+        android:id="@+id/form_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabs_container"
+        android:padding="@dimen/_24sdp">
+        <!-- لیبل نام کاربری -->
+        <TextView
+            android:id="@+id/user_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textColor="@color/DarkGreen"
+            android:textSize="17sp"
+            android:fontFamily="@font/english"/>
+
+        <!-- فیلد نام کاربری -->
+        <EditText
+            android:id="@+id/user_field"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/user_label"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:inputType="textEmailAddress"
+            android:hint="Foofino"
+            android:textColor="@color/DarkGreen"
+            android:textColorHint="@color/grey"
+            android:background="@drawable/gradient_edite_text" />
+
+        <!-- لیبل رمز -->
+        <TextView
+            android:id="@+id/password_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="@color/DarkGreen"
+            android:textSize="17sp"
+            android:fontFamily="@font/english"
+            android:layout_below="@id/user_field"
+            android:layout_marginTop="@dimen/_16sdp" />
+
+        <!-- فیلد رمز -->
+        <EditText
+            android:id="@+id/password_field"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/password_label"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:inputType="textPassword"
+            android:hint="••••••••"
+            android:fontFamily="@font/english"
+            android:textColor="@color/DarkGreen"
+            android:textColorHint="@color/grey"
+            android:background="@drawable/gradient_edite_text" />
+
+        <RadioGroup
+            android:id="@+id/rg_roles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password_field"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/english"
+                android:textSize="15sp"
+                android:text="admin" />
+
+            <RadioButton
+                android:id="@+id/rb_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/english"
+                android:textSize="15sp"
+                android:text="user"
+                android:layout_marginLeft="@dimen/_20sdp"/>
+        </RadioGroup>
+
+        <!-- دکمه لاگین -->
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:backgroundTint="@color/DarkGreen"
+            android:fontFamily="@font/english"
+            android:text="signup"
+            android:textColor="@color/LightNeutral"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/rg_roles" />
+    </RelativeLayout>
+
+</FrameLayout>

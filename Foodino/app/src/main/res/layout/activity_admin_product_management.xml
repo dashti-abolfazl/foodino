@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightNeutral"
+    tools:context=".AdminProductManagement">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mainCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_15sdp"
+        app:cardBackgroundColor="@color/DarkGreen"
+        app:cardCornerRadius="@dimen/_30sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/_28sdp"
+                app:cardElevation="@dimen/_2sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/LightNeutral"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- عکس محصول -->
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/icon" />
+
+                    <!-- آیدی محصول -->
+                    <TextView
+                        android:id="@+id/product_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/english"
+                        android:text="ID"
+                        android:textColor="@color/DarkGreen"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/txtCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/gradient_edite_text"
+                        android:hint="ID"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:textColor="@color/DarkGreen"
+                        android:textColorHint="@color/grey" />
+
+                    <!-- نام محصول -->
+                    <TextView
+                        android:id="@+id/product_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/english"
+                        android:text="Name"
+                        android:textColor="@color/DarkGreen"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/gradient_edite_text"
+                        android:hint="Name"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:textColor="@color/DarkGreen"
+                        android:textColorHint="@color/grey" />
+
+                    <!-- قیمت محصول -->
+                    <TextView
+                        android:id="@+id/product_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/english"
+                        android:text="Price"
+                        android:textColor="@color/DarkGreen"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/txtPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/gradient_edite_text"
+                        android:hint="Price"
+                        android:inputType="number"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:textColor="@color/DarkGreen"
+                        android:textColorHint="@color/grey" />
+
+                    <!-- گروه بندی محصول -->
+                    <TextView
+                        android:id="@+id/product_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/english"
+                        android:text="Group"
+                        android:textColor="@color/DarkGreen"
+                        android:textSize="17sp" />
+
+                    <Spinner
+                        android:id="@+id/group_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/gradient_edite_text"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:spinnerMode="dropdown" />
+
+                    <!-- دکمه اضافه کردن -->
+                    <Button
+                        android:id="@+id/btn_insert"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:backgroundTint="@color/DarkGreen"
+                        android:fontFamily="@font/english"
+                        android:text="ADD"
+                        android:textColor="@color/LightNeutral"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- دکمه‌های عملیاتی -->
+                <ImageButton
+                    android:id="@+id/btn_edit"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_410sdp"
+                    android:backgroundTint="@color/DarkGreen"
+                    android:contentDescription="Edit"
+                    android:src="@android:drawable/ic_menu_edit" />
+
+                <ImageButton
+                    android:id="@+id/btnDelet"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_75sdp"
+                    android:layout_marginTop="@dimen/_410sdp"
+                    android:backgroundTint="@color/DarkGreen"
+                    android:contentDescription="Delete"
+                    android:src="@android:drawable/ic_menu_delete" />
+
+                <ImageButton
+                    android:id="@+id/btn_display"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_135sdp"
+                    android:layout_marginTop="@dimen/_410sdp"
+                    android:backgroundTint="@color/DarkGreen"
+                    android:contentDescription="Show"
+                    android:src="@android:drawable/ic_menu_view" />
+
+                <ImageButton
+                    android:id="@+id/logoutButton"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_195sdp"
+                    android:layout_marginTop="@dimen/_410sdp"
+                    android:backgroundTint="@color/DarkGreen"
+                    android:contentDescription="Exit"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/custom_progress_bar"
+                    android:visibility="visible" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

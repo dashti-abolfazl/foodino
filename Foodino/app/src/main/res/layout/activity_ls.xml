@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LS"
+    android:background="@drawable/wl_pic">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
+        android:padding="@dimen/_20sdp"/>
+
+        <!-- عنوان اپلیکیشن -->
+        <TextView
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:fontFamily="@font/english"
+            android:text="@string/app_name"
+            android:textColor="@color/LightNeutral"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <!-- شعار اپلیکیشن -->
+        <TextView
+            android:id="@+id/app_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/english"
+            android:text="choose the option"
+            android:textColor="@color/LightGreen"
+            android:textSize="20sp" />
+
+        <!-- دکمه ثبت‌نام -->
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/app_subtitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_250sdp"
+            android:backgroundTint="@color/DarkGreen"
+            android:fontFamily="@font/english"
+            android:text="signup"
+            android:textColor="@color/LightNeutral"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <!-- دکمه ورود -->
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/btn_signup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="@color/LightGreen"
+            android:fontFamily="@font/english"
+            android:text="login"
+            android:textColor="@color/DarkGreen"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <!-- لینک قوانین -->
+        <TextView
+            android:id="@+id/txt_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_24sdp"
+            android:text="Application Guide"
+            android:textColor="@color/LirhtPrtmaryColor"
+            android:textSize="15sp" />
+
+</RelativeLayout>

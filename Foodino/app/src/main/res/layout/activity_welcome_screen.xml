@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeScreen"
+    android:background="@drawable/wl_pic">
+
+
+
+    <!-- عنوان صفحه -->
+    <TextView
+        android:id="@+id/welcome_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_text"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/english"
+        android:textColor="@color/LightNeutral"
+        android:layout_marginLeft="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_20sdp" />
+
+    <!-- توضیحات عنوان صفحه -->
+    <TextView
+        android:id="@+id/about_title"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:text="@string/about_welcome_text"
+        android:textSize="15sp"
+        android:fontFamily="@font/english"
+        android:textColor="@color/LightNeutral"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_60sdp"
+
+        android:layout_below="@id/welcome_title"/>
+
+    <!-- دکمه ادامه -->
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_380sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:backgroundTint="@color/LightNeutralBTN"
+        android:fontFamily="@font/english"
+        android:text="@string/btn_welcome_text"
+        android:textColor="@color/LightNeutral"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@id/about_title"/>
+
+</RelativeLayout>
