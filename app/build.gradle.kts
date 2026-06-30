@@ -34,6 +34,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    // پوشه‌های تست جداگانه‌ی پروژه (در ریشه‌ی پروژه، کنار app)
+    sourceSets {
+        getByName("test").java.srcDir("../unit-test")          // یونیت‌تست‌ها
+        getByName("androidTest").java.srcDir("../e2e-test")     // تست‌های E2E
+    }
 }
 
 dependencies {
@@ -64,4 +70,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.uiautomator)
+    androidTestImplementation(libs.androidx.test.core)
 }

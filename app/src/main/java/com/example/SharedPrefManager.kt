@@ -2,31 +2,30 @@ package com.example.foodino
 
 import android.content.Context
 
-class SharedPrefManager(context: Context){
+class SharedPrefManager(context: Context) {
 
-    private val sharedPreferences =context.getSharedPreferences("MyAppPrefs",Context.MODE_PRIVATE)
+    private val sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
     private val editor = sharedPreferences.edit()
 
-    fun saveLoginInfo(username: String,role: String){
-        editor.putString("USERNAME",username)
-        editor.putString("ROLE",role)
+    fun saveLoginInfo(userId: Int, username: String, role: String) {
+        editor.putInt("USER_ID", userId)
+        editor.putString("USERNAME", username)
+        editor.putString("ROLE", role)
         editor.apply()
     }
 
-    fun getUsername():String?{
-        return sharedPreferences.getString("USERNAME",null)
-    }
+    fun getUserId(): Int = sharedPreferences.getInt("USER_ID", -1)
 
-    fun getRole():String?{
-        return sharedPreferences.getString("ROLE",null)
-    }
+    fun getUsername(): String? = sharedPreferences.getString("USERNAME", null)
 
-    fun clear(){
+    fun getRole(): String? = sharedPreferences.getString("ROLE", null)
+
+    fun isLoggedIn(): Boolean = getUserId() > 0
+
+    fun clear() {
         editor.clear()
         editor.apply()
     }
 
-    fun logout(){
-        clear()
-    }
+    fun logout() = clear()
 }

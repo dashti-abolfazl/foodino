@@ -1,5 +1,6 @@
 package com.example.foodino
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -18,6 +19,12 @@ class SignupScreen : AppCompatActivity() {
         binding = ActivitySignupScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.apply {
+
+            // رفتن به صفحه‌ی ورود با زدن روی تب Login
+            tabLogin.setOnClickListener {
+                startActivity(Intent(this@SignupScreen, LoginScreen::class.java))
+                finish()
+            }
 
             btnSignup.setOnClickListener {
                 val username = userField.text.toString()

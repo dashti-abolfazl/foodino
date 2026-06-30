@@ -1,137 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginScreen"
-    android:background="@drawable/gradient_bg_ls">
+    android:background="@color/LightNeutral"
+    android:fillViewport="true"
+    tools:context=".LoginScreen">
 
-    <ImageView
-        android:id="@+id/pic_heder"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_210sdp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ls"
-        android:clipToOutline="true"
-        android:background="@drawable/shape" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- تب‌های Login / Signup -->
-        <RelativeLayout
-            android:id="@+id/tabs_container"
+        <!-- هدر سبز با لوگو -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_header_curve"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@android:color/white"
+                android:padding="6dp"
+                android:src="@mipmap/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/english"
+                android:text="Foodino"
+                android:textColor="@android:color/white"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/english"
+                android:text="Welcome back"
+                android:textColor="#DFFFFFFF"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- کارت فرم -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_220sdp"
-            android:layout_marginLeft="@dimen/_24sdp">
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="-30dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="8dp">
 
-            <TextView
-                android:id="@+id/tab_login"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/english"
-                android:textColor="@color/DarkGreen"
-                android:layout_alignParentStart="true" />
+                android:orientation="vertical"
+                android:padding="22dp">
 
-            <TextView
-                android:id="@+id/tab_signup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Signup"
-                android:textSize="20sp"
-                android:fontFamily="@font/english"
-                android:textColor="@color/grey"
-                android:layout_toEndOf="@id/tab_login"
-                android:layout_marginStart="@dimen/_24sdp" />
+                <!-- تب‌ها -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
 
-            <!-- خط زیر تب فعال -->
-            <View
-                android:id="@+id/active_underline"
-                android:layout_width="@dimen/_42sdp"
-                android:layout_height="@dimen/_2sdp"
-                android:background="@color/DarkGreen"
-                android:layout_below="@id/tab_login"
-                android:layout_alignStart="@id/tab_login"
-                android:layout_marginTop="@dimen/_6sdp" />
-        </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tab_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/english"
+                        android:text="Login"
+                        android:textColor="@color/DarkGreen"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-        <!-- کارت/پنل فرم -->
-        <RelativeLayout
-            android:id="@+id/form_card"
+                    <TextView
+                        android:id="@+id/tab_signup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:fontFamily="@font/english"
+                        android:padding="2dp"
+                        android:text="Signup"
+                        android:textColor="@color/grey"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/english"
+                    android:text="User Name"
+                    android:textColor="@color/PrtmaryColor"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/user_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Foodino"
+                    android:inputType="text"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/PrtmaryColor"
+                    android:textColorHint="@color/grey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/english"
+                    android:text="Password"
+                    android:textColor="@color/PrtmaryColor"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/password_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="••••••••"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="@color/PrtmaryColor"
+                    android:textColorHint="@color/grey" />
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="26dp"
+                    android:background="@drawable/bg_button_green"
+                    android:fontFamily="@font/english"
+                    android:text="Login"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tabs_container"
-            android:padding="@dimen/_24sdp">
-            <!-- لیبل نام کاربری -->
-            <TextView
-                android:id="@+id/user_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/english"
-                android:text="User Name"
-                android:textColor="@color/DarkGreen"
-                android:textSize="17sp" />
-
-            <!-- فیلد نام کاربری -->
-            <EditText
-                android:id="@+id/user_field"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_below="@id/user_label"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:paddingStart="@dimen/_12sdp"
-                android:paddingEnd="@dimen/_12sdp"
-                android:inputType="textEmailAddress"
-                android:hint="Foofino"
-                android:textColor="@color/DarkGreen"
-                android:textColorHint="@color/grey"
-                android:background="@drawable/gradient_edite_text" />
-
-            <!-- لیبل رمز -->
-            <TextView
-                android:id="@+id/password_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:textColor="@color/DarkGreen"
-                android:textSize="17sp"
-                android:fontFamily="@font/english"
-                android:layout_below="@id/user_field"
-                android:layout_marginTop="@dimen/_16sdp" />
-
-            <!-- فیلد رمز -->
-            <EditText
-                android:id="@+id/password_field"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_below="@id/password_label"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:paddingStart="@dimen/_12sdp"
-                android:paddingEnd="@dimen/_12sdp"
-                android:inputType="textPassword"
-                android:hint="••••••••"
-                android:fontFamily="@font/english"
-                android:textColor="@color/DarkGreen"
-                android:textColorHint="@color/grey"
-                android:background="@drawable/gradient_edite_text" />
-
-            <!-- دکمه لاگین -->
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:backgroundTint="@color/DarkGreen"
-                android:fontFamily="@font/english"
-                android:text="login"
-                android:textColor="@color/LightNeutral"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/password_field"
-                />
-        </RelativeLayout>
-</RelativeLayout>
+            android:layout_height="24dp" />
+    </LinearLayout>
+</ScrollView>

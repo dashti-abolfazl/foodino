@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodino.databinding.ActivityShopScreenBinding
@@ -23,15 +24,33 @@ class ShopScreen : AppCompatActivity() {
     private var productList: List<Product> = emptyList()
     private val searchList = mutableListOf<Product>()
 
+    private lateinit var prefs: SharedPrefManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityShopScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        prefs = SharedPrefManager(this)
+
+        setupToolbarAndDrawer()
         setupRecyclerView()
         setupSearchRecycler()
         setupSearchView()
         fetchProducts()
+    }
+
+    // ---------------- Toolbar + Drawer (منوی همبرگری) ----------------
+    private fun setupToolbarAndDrawer() {
+        setupFoodinoDrawer(binding.drawerLayout, binding.toolbar, binding.navView)
+    }
+
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 
     // ---------------- RecyclerView ----------------
@@ -42,8 +61,31 @@ class ShopScreen : AppCompatActivity() {
 
     private fun setupSearchRecycler() {
         searchAdapter = SearchResultAdapter(searchList) { product ->
-            // کلیک روی محصول (در صورت نیاز)
+            addToCart(product)
         }
+    }
+
+    // ---------------- افزودن به سبد خرید ----------------
+    private fun addToCart(product: Product) {
+        val userId = prefs.getUserId()
+        if (userId <= 0) {
+            showToast("برای خرید ابتدا وارد حساب شوید")
+            return
+        }
+        RetrofitClient.instance.addToCart(userId, product.id, 1)
+            .enqueue(object : Callback<ServerResponse> {
+                override fun onResponse(
+                    call: Call<ServerResponse>,
+                    response: Response<ServerResponse>
+                ) {
+                    val res = response.body()
+                    showToast(res?.message ?: "به سبد اضافه شد")
+                }
+
+                override fun onFailure(call: Call<ServerResponse>, t: Throwable) {
+                    showToast("خطا در افزودن به سبد")
+                }
+            })
     }
 
     // ---------------- Products ----------------
@@ -56,11 +98,11 @@ class ShopScreen : AppCompatActivity() {
                     response: Response<ProductResponse>
                 ) {
                     if (response.isSuccessful && response.body()?.success == true) {
-
                         productList = response.body()!!.products
-                        productAdapter = ProductAdapter(productList)
+                        productAdapter = ProductAdapter(productList) { product ->
+                            addToCart(product)
+                        }
                         recyclerView.adapter = productAdapter
-
                     } else {
                         showToast("خطا در دریافت محصولات")
                     }
@@ -85,7 +127,7 @@ class ShopScreen : AppCompatActivity() {
 
                 override fun onQueryTextChange(newText: String?): Boolean {
                     if (newText.isNullOrBlank()) {
-                        recyclerView.adapter = productAdapter
+                        if (::productAdapter.isInitialized) recyclerView.adapter = productAdapter
                     } else {
                         performSearch(newText)
                     }
@@ -103,10 +145,8 @@ class ShopScreen : AppCompatActivity() {
                     response: Response<SearchResponse>
                 ) {
                     if (response.isSuccessful && response.body()?.success == true) {
-
                         recyclerView.adapter = searchAdapter
                         searchAdapter.updateProducts(response.body()!!.data)
-
                     } else {
                         searchAdapter.updateProducts(emptyList())
                     }

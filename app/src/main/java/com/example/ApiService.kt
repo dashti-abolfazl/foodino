@@ -59,5 +59,53 @@ interface ApiService {
     @GET("search_product.php")
     fun searchProduct(@Query("query") query: String): Call<SearchResponse>
 
+    // ---------------- پروفایل ----------------
+    @GET("get_profile.php")
+    fun getProfile(@Query("user_id") userId: Int): Call<ProfileResponse>
 
+    @FormUrlEncoded
+    @POST("update_profile.php")
+    fun updateProfile(
+        @Field("user_id") userId: Int,
+        @Field("full_name") fullName: String,
+        @Field("phone") phone: String,
+        @Field("address") address: String
+    ): Call<ServerResponse>
+
+    // ---------------- سبد خرید ----------------
+    @FormUrlEncoded
+    @POST("add_to_cart.php")
+    fun addToCart(
+        @Field("user_id") userId: Int,
+        @Field("product_id") productId: Int,
+        @Field("quantity") quantity: Int = 1
+    ): Call<ServerResponse>
+
+    @GET("get_cart.php")
+    fun getCart(@Query("user_id") userId: Int): Call<CartResponse>
+
+    @FormUrlEncoded
+    @POST("update_cart.php")
+    fun updateCart(
+        @Field("user_id") userId: Int,
+        @Field("product_id") productId: Int,
+        @Field("quantity") quantity: Int
+    ): Call<ServerResponse>
+
+    @FormUrlEncoded
+    @POST("remove_from_cart.php")
+    fun removeFromCart(
+        @Field("user_id") userId: Int,
+        @Field("product_id") productId: Int
+    ): Call<ServerResponse>
+
+    // ---------------- ثبت سفارش ----------------
+    @FormUrlEncoded
+    @POST("place_order.php")
+    fun placeOrder(
+        @Field("user_id") userId: Int,
+        @Field("full_name") fullName: String,
+        @Field("phone") phone: String,
+        @Field("address") address: String
+    ): Call<OrderResponse>
 }

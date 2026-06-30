@@ -3,6 +3,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -16,14 +17,17 @@ import com.example.foodino.R
 import java.text.DecimalFormat
 
 // آداپتر برای نمایش لیستی از محصولات در RecyclerView
-class ProductAdapter(private val productList:List<Product>) :
-    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(
+    private val productList: List<Product>,
+    private val onAddToCart: ((Product) -> Unit)? = null
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     // ViewHolder کلاس داخلی که اجزای XML مربوط به هر آیتم را نگه می‌دارد
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.textViewName)           // متن نام محصول
         val price: TextView = itemView.findViewById(R.id.textViewPrice)         // متن قیمت محصول
         val image: ImageView = itemView.findViewById(R.id.imageViewProduct)     // تصویر محصول
+        val addBtn: Button = itemView.findViewById(R.id.btnAddToCart)           // دکمه افزودن به سبد
     }
 
     // متد برای ساخت ViewHolder جدید با استفاده از layout آیتم محصول
@@ -48,6 +52,9 @@ class ProductAdapter(private val productList:List<Product>) :
 
         // فرمت‌کردن عدد قیمت با جداکننده سه‌تایی (مثلاً: 25,000)
         holder.price.text = "قیمت: ${product.price} تومان"
+
+        // کلیک روی دکمه‌ی افزودن به سبد خرید
+        holder.addBtn.setOnClickListener { onAddToCart?.invoke(product) }
 
         // گرفتن آدرس تصویر
         val imageUrl = product.imageUrl

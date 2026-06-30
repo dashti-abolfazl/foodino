@@ -15,6 +15,5 @@ object RetrofitClient {
             .build() //تنظیمات بالا رو اعمال می‌کنه و در نهایت یک شیء Retrofit واقعی می‌سازه
 
         retrofit.create(ApiService::class.java)
-        //یعنی متدهایی که توی ApiService تعریف کردیم (مثلاً @POST, @GET, ...) تبدیل به توابع قابل استفاده می‌شن
     }
 }

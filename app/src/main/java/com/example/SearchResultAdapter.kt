@@ -56,10 +56,9 @@ class SearchResultAdapter(
                 })
                 .into(binding.imageViewProduct)
 
-            // کلیک روی آیتم
-            binding.root.setOnClickListener {
-                onItemClick?.invoke(product)
-            }
+            // کلیک روی آیتم و دکمه‌ی افزودن به سبد
+            binding.root.setOnClickListener { onItemClick?.invoke(product) }
+            binding.btnAddToCart.setOnClickListener { onItemClick?.invoke(product) }
         }
     }
 

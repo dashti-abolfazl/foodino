@@ -41,6 +41,13 @@ class LoginScreen : AppCompatActivity() {
                         val loginResponse = response.body()
                         if (loginResponse?.success == true) {
 
+                            // ذخیره‌ی اطلاعات ورود برای استفاده در سبد خرید و پروفایل
+                            SharedPrefManager(this@LoginScreen).saveLoginInfo(
+                                loginResponse.userId,
+                                loginResponse.username ?: username,
+                                loginResponse.role ?: "customer"
+                            )
+
                             // بررسی نقش
                             when (loginResponse.role) {
                                 "admin" -> startActivity(Intent(this@LoginScreen, AdminProductManagement::class.java))
@@ -57,7 +64,7 @@ class LoginScreen : AppCompatActivity() {
                         } else {
                             Toast.makeText(
                                 this@LoginScreen,
-                                "خطا: ${loginResponse?.messsage}",
+                                "خطا: ${loginResponse?.message}",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -71,6 +78,7 @@ class LoginScreen : AppCompatActivity() {
 
             tabSignup.setOnClickListener {
                 startActivity(Intent(this@LoginScreen, SignupScreen::class.java))
+                finish()
             }
         }
     }

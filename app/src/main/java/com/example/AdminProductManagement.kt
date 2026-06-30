@@ -31,6 +31,10 @@ class AdminProductManagement : AppCompatActivity() {
         binding = ActivityAdminProductManagementBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        // منوی همبرگری (بر اساس نقش، برای ادمین گزینه‌های مدیریتی نشان داده می‌شود)
+        setupFoodinoDrawer(binding.drawerLayout, binding.toolbar, binding.navView)
+
         binding.apply {
             // دسترسی به Spinner
             spinner = findViewById(R.id.group_item)

@@ -4,30 +4,31 @@
     android:id="@+id/cardview"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_15sdp"
-    android:layout_marginBottom="@dimen/_10sdp"
-    android:elevation="@dimen/_40sdp"
-    app:cardCornerRadius="@dimen/_15sdp">
+    android:layout_margin="@dimen/_8sdp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="@dimen/_12sdp"
+    app:cardElevation="@dimen/_4sdp">
 
     <LinearLayout
-        android:layout_width="@dimen/_100sdp"
+        android:layout_width="@dimen/_120sdp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        android:padding="@dimen/_5sdp">
+        android:orientation="vertical"
+        android:padding="@dimen/_6sdp">
 
         <ImageView
             android:id="@+id/imageViewProduct"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
-            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
             android:src="@mipmap/icon" />
 
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/english"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/persian"
             android:text="name"
             android:textColor="@color/DarkGreen"
             android:textSize="15sp"
@@ -37,13 +38,25 @@
             android:id="@+id/textViewPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:text="12000"
-            android:fontFamily="@font/english"
-
+            android:fontFamily="@font/persian"
+            android:text="12000"
             android:textColor="@color/grey"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/gradient_bg_btn"
+            android:drawableStart="@drawable/ic_add_cart"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/persian"
+            android:paddingHorizontal="6dp"
+            android:text="افزودن"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

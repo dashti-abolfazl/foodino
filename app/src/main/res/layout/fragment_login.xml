@@ -10,7 +10,6 @@
         android:id="@+id/form_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tabs_container"
         android:padding="@dimen/_24sdp">
         <!-- لیبل نام کاربری -->
         <TextView
